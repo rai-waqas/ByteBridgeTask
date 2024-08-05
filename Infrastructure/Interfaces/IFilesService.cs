@@ -11,5 +11,6 @@ namespace DataAccess.Interfaces
         Task UpdateFileAsync(File file);
         Task DeleteFileAsync(int id);
         Task DeleteFilesByClientDetailsIdAsync(int clientDetailsId);
+        Task<Boolean> FileExists(string name);
     }
 }

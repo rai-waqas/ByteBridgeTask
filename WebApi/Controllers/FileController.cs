@@ -40,6 +40,13 @@ namespace WebApi.Controllers
             }
         }
 
+
+        [HttpGet("exists/{name}")]
+        public async Task<IActionResult> FileExists(string name)
+        {
+            return Ok(await _filesService.FileExists(name));
+        }
+
         [HttpGet("clientDetails/{clientId}")]
         public async Task<IActionResult> GetFilesByClientDetailsId(int clientId)
         {

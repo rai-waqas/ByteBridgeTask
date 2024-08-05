@@ -50,5 +50,14 @@ namespace Business.Services
         {
             await _unitOfWork.Files.DeleteAllFilesByClientDetailsIdAsync(clientDetailsId);
         }
+
+        public async Task<Boolean> FileExists(string name)
+        {
+            var file = await _unitOfWork.Files.GetFileByName(name);
+            if (file == null) {
+                return false;
+            }
+            return true;
+        }
     }
 }

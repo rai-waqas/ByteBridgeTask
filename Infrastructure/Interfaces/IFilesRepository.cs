@@ -6,5 +6,6 @@ namespace DataAccess.Interfaces
         Task<IEnumerable<File>> GetFilesByClientDetailsIdAsync(int clientDetailsId);
         Task<IEnumerable<File>> AddAllAsync(IEnumerable<File> files);
         Task DeleteAllFilesByClientDetailsIdAsync(int clientDetailsId);
+        Task<File?> GetFileByName(string name);
     }
 }

@@ -34,5 +34,10 @@ namespace DataAccess.Repositories
                 _context.Set<File>().RemoveRange(filesToDelete);
             }
         }
+
+        public async Task<File?> GetFileByName(string name)
+        {
+            return await _context.Files.FirstOrDefaultAsync(f => f.Filename == name);
+        }
     }
 }
