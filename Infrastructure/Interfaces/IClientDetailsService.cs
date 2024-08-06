@@ -15,5 +15,6 @@ namespace DataAccess.Interfaces
         Task AddClientDetailsAsync(AddClientDetailsDto clientDetailsDto);
         Task UpdateClientDetailsAsync(AddClientDetailsDto clientDetailsDto);
         Task DeleteClientDetailsAsync(int id);
+        Task<bool> EmailExists(string email);
     }
 }

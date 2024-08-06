@@ -91,6 +91,15 @@ namespace WebAPI.Controllers
             if (clientDetailsDto == null)
                 return BadRequest("Client details data is null");
 
+            if (string.IsNullOrEmpty(clientDetailsDto.Email))
+            {
+                return BadRequest("Email cannot be null or empty");
+            }
+
+            if (_clientDetailsService.EmailExists(clientDetailsDto.Email).Result)
+            {
+                return Conflict("Email already exists");
+            }
             try
             {
                 await _clientDetailsService.AddClientDetailsAsync(clientDetailsDto);
@@ -103,6 +112,19 @@ namespace WebAPI.Controllers
             }
         }
 
+        [HttpGet("emailExists/{email}")]
+        public async Task<IActionResult> EmailExists(string email)
+        {
+            try
+            {
+                var emailExists = await _clientDetailsService.EmailExists(email);
+                return Ok(emailExists);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateClientDetails(int id, [FromForm] AddClientDetailsDto clientDetailsDto)

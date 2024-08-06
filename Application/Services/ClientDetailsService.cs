@@ -228,5 +228,9 @@ namespace Business.Services
         {
             return await _unitOfWork.ClientDetails.GetClientDetailsByEmailAsync(email);
         }
+        public async Task<bool> EmailExists(string email)
+        {
+            return await _unitOfWork.ClientDetails.EmailExists(email);
+        }
     }
 }

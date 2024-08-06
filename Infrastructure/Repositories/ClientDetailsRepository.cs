@@ -37,5 +37,10 @@ namespace DataAccess.Repositories
                 throw new ApplicationException("An error occurred while adding client data.", ex);
             }
         }
+
+        public Task<bool> EmailExists(string email)
+        {
+            return _context.Clientdetails.AnyAsync(x => x.Email == email);
+        }
     }
 }

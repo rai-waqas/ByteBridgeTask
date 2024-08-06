@@ -7,5 +7,6 @@ namespace DataAccess.Interfaces
         IQueryable<Clientdetail> GetClientDetails();
         Task<Clientdetail?> GetClientDetailsByEmailAsync(string email);
         Task<Clientdetail?> AddClientDataAsync(Clientdetail clientdetail);
+        Task<Boolean> EmailExists(string email);
     }
 }

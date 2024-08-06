@@ -1,7 +1,5 @@
 ﻿
-using DataAccess.Dtos;
 using Microsoft.AspNetCore.Http;
-using File = DataAccess.Entities.File;
 namespace DataAccess.Dtos
 {
     public class AddClientDetailsDto
