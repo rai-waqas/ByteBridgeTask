@@ -104,7 +104,7 @@ namespace Business.Services
                         break;
                     default:
                         // Default sorting if the column is not recognized
-                        query = query.OrderBy(cd => cd.Id);
+                        query = query.OrderByDescending(cd => cd.Id);
                         break;
                 }
             }
